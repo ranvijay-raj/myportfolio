@@ -282,6 +282,9 @@ footer{
         flex-direction: row-reverse;
         padding: 0 2rem;
     }
+    #hero .texts #span{
+        text-align: start;
+    }
     #hero .texts{
         align-items: flex-start;
         margin-left: 2rem;
