@@ -25,7 +25,8 @@ let visibility = (el)=>{
     }
 }
 let taketo = (destination)=>{
-    visibility(document.getElementById("cross"))
+    links.classList.remove("show")
+    document.getElementById("hamburger").style.visibility = "visible"
     scroll.scrollTo(destination);
 }
 let preTextAnimation = ()=>{
