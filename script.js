@@ -1,10 +1,6 @@
 const scroll = new FeatherScroll();
 let links = document.querySelector(".links")
 let intro = document.getElementById("intro")
-let taketo = (destination)=>{
-    links.style.display = "none"
-    scroll.scrollTo(destination);
-}
 let changemode = (el)=>{
     document.body.classList.toggle("dark-mode");
     if (document.body.classList.contains("dark-mode")) {
@@ -27,6 +23,10 @@ let visibility = (el)=>{
     } else {
         document.getElementById("hamburger").style.visibility = "visible"
     }
+}
+let taketo = (destination)=>{
+    visibility(document.getElementById("cross"))
+    scroll.scrollTo(destination);
 }
 let preTextAnimation = ()=>{
     let splittedText = intro.textContent.split("")
