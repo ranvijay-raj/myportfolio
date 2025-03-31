@@ -224,6 +224,7 @@ h2{
 }
 #projects .card{
     height: 55vh;
+    width: 94%;
 }
 #projects .card p{
     font-family: "Poppins", sans-serif;
@@ -282,12 +283,12 @@ footer{
         flex-direction: row-reverse;
         padding: 0 2rem;
     }
-    #hero .texts #span{
-        text-align: start;
-    }
     #hero .texts{
         align-items: flex-start;
         margin-left: 2rem;
+    }
+    #hero .texts #span{
+        text-align: start;
     }
     #hero img, #about img{
         width: auto;
