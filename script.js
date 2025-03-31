@@ -104,7 +104,7 @@ mm.add("(min-width: 800px)", () => {
 mm.add("(max-width: 800px)", () => {
     // ✅ Mobile & Tablet Animation
     gsap.to(".cardContainer", {
-        transform: "translateX(-300%)",
+        transform: "translateX(-315%)",
         scrollTrigger: {
             trigger: "#projects",
             scroller: "body",
