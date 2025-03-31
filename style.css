@@ -310,7 +310,7 @@ footer{
         flex-direction: row;
         flex-wrap: wrap;
     }
-    .card{
+    .card, #projects .card{
         width: 45%;
     }
     #skills{
