@@ -1,6 +1,32 @@
+let obj = { val: 0 }
+let premm = gsap.matchMedia();
+let pretl = gsap.timeline()
+premm.add("(min-width: 800px)", () => {
+    pretl.to(obj, {
+        val: 100,
+        duration: 5,
+        roundProps: "val",
+        onUpdate: () => {
+          document.getElementById("loadnumber").textContent = obj.val;
+        }
+      });
+    pretl.to("#loadnumber", { opacity: 0, duration: 1, onComplete: () => {
+      document.getElementById("loadnumber").style.display = "none";
+    }});
+    pretl.to(".bar",{
+        height: 0,
+        duration: 0.5,
+        stagger: 0.15,
+        onComplete: ()=>{
+            document.body.overflowY = "scroll"
+            document.querySelector(".loader").style.display = "none"
+        }
+      })
+});
 const scroll = new FeatherScroll();
 let links = document.querySelector(".links")
 let intro = document.getElementById("intro")
+let alter = document.getElementsByClassName("alter")
 let changemode = (el)=>{
     document.body.classList.toggle("dark-mode");
     if (document.body.classList.contains("dark-mode")) {
@@ -52,25 +78,30 @@ const aboutAnimate = (target, start = "top 90%") => {
 preTextAnimation()
 if (localStorage.getItem("theme") == "dark") {
     document.body.classList.add("dark-mode");
+    let arr = Array.from(alter)
+    arr.forEach((elem)=>{
+        elem.outerHTML = `<svg xmlns="http://www.w3.org/2000/svg" onclick="changemode(this)" width="30" height="30" fill="currentColor" class="bi bi-sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+        </svg>`
+    })
 }
-let tl = gsap.timeline()
-tl.from("header", {
+pretl.from("header", {
     y: -50,
     opacity: 0,
     duration: 1
 })
-tl.from("#hero img",{
+pretl.from("#hero img",{
     opacity: 0,
     duration: 0.4
 })
-tl.from("#intro span", {
+pretl.from("#intro span", {
     y: 50,
     opacity: 0,
     duration: 0.6,
     delay: 0.5,
     stagger: 0.1
 })
-tl.from(".texts #span",{
+pretl.from(".texts #span",{
     opacity: 0,
     duration: 1
 })
@@ -116,3 +147,23 @@ mm.add("(max-width: 800px)", () => {
         }
     })
 });
+gsap.from(".input-wrapper", {
+    opacity: 0,
+    y: 50,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".contact-form",
+      start: "top 80%"
+    }
+  });
+
+  // Button press effect
+  document.querySelector(".submit-btn").addEventListener("mousedown", () => {
+    gsap.to(".submit-btn", { scale: 0.95, duration: 0.1 });
+  });
+
+  document.querySelector(".submit-btn").addEventListener("mouseup", () => {
+    gsap.to(".submit-btn", { scale: 1, duration: 0.1 });
+  });
