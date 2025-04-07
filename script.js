@@ -18,7 +18,7 @@ premm.add("(min-width: 800px)", () => {
         duration: 0.5,
         stagger: 0.15,
         onComplete: ()=>{
-            document.body.overflowY = "scroll"
+            document.body.style.overflowY = "scroll"
             document.querySelector(".loader").style.display = "none"
         }
       })
