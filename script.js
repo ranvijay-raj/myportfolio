@@ -132,7 +132,6 @@ mm.add("(min-width: 800px)", () => {
         }
     })
 });
-
 mm.add("(max-width: 800px)", () => {
     // ✅ Mobile & Tablet Animation
     gsap.to(".cardContainer", {
@@ -147,23 +146,34 @@ mm.add("(max-width: 800px)", () => {
         }
     })
 });
+gsap.from("#contact .section-title", {
+  y: 50,
+  opacity: 0,
+  duration: 1,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: "#contact",
+    start: "top 80%"
+  }
+});
 gsap.from(".input-wrapper", {
-    opacity: 0,
-    y: 50,
-    stagger: 0.2,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: ".contact-form",
-      start: "top 80%"
-    }
-  });
-
-  // Button press effect
-  document.querySelector(".submit-btn").addEventListener("mousedown", () => {
-    gsap.to(".submit-btn", { scale: 0.95, duration: 0.1 });
-  });
-
-  document.querySelector(".submit-btn").addEventListener("mouseup", () => {
-    gsap.to(".submit-btn", { scale: 1, duration: 0.1 });
-  });
+  y: 40,
+  opacity: 0,
+  duration: 0.8,
+  stagger: 0.2,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#contact",
+    start: "top 80%"
+  }
+});
+gsap.from(".submit-btn", {
+  scale: 0.8,
+  opacity: 0,
+  duration: 0.8,
+  ease: "back.out(1.7)",
+  scrollTrigger: {
+    trigger: ".submit-btn",
+    start: "top 90%"
+  }
+});
