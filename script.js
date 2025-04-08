@@ -19,6 +19,7 @@ premm.add("(min-width: 800px)", () => {
       opacity: 0,
       onComplete: ()=>{
         document.querySelector(".loader").style.display = "none"
+        document.body.style.overflowY = "scroll"
       }
     })
 });
