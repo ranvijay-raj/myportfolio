@@ -264,102 +264,94 @@ h2{
 #projects .btns svg{
     color: var(--primary-color);
 }
-#contact{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: var(--nav);
-    color: var(--text-color);
-    font-family: "Ubuntu", sans-serif;
-    gap: 3rem;
-    border-top: 0.1vw solid var(--primary-color);
-}
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+#contact {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 20px;
   }
-  
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: "Ubuntu";
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
   .input-wrapper {
     position: relative;
   }
-  
-  input, textarea {
+  input,
+  textarea {
     width: 100%;
-    padding: 1rem 0.5rem;
+    padding: 12px;
     background: transparent;
     border: none;
-    border-bottom: 2px solid #ccc;
-    color: var(--text-color);
+    border-bottom: 2px solid #777;
+    color: #fff;
     font-size: 1rem;
     outline: none;
-    resize: none;
   }
-  
   label {
     position: absolute;
-    left: 0.5rem;
-    top: 1rem;
-    font-size: 1rem;
+    left: 0;
+    top: 12px;
     color: #aaa;
+    font-size: 1rem;
     pointer-events: none;
-    transition: 0.3s ease;
+    transition: 0.3s;
   }
-  
   input:focus + label,
+  input:valid + label,
   textarea:focus + label,
-  input:not(:placeholder-shown) + label,
-  textarea:not(:placeholder-shown) + label {
-    top: -0.5rem;
+  textarea:valid + label {
+    top: -14px;
     font-size: 0.8rem;
-    color: #3498db;
+    color: #1e90ff;
   }
-  
   .underline {
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 0%;
     height: 2px;
-    background: #3498db;
-    transition: 0.3s ease;
+    background: #1e90ff;
+    transition: width 0.3s ease;
   }
-  
   input:focus ~ .underline,
   textarea:focus ~ .underline {
     width: 100%;
   }
-  
   .submit-btn {
     position: relative;
-    padding: 1rem 2rem;
+    background: none;
+    border: 2px solid #1e90ff;
+    color: #1e90ff;
+    padding: 12px 20px;
     font-size: 1rem;
-    color: var(--text-color);
-    background: transparent;
-    border: 2px solid #3498db;
     cursor: pointer;
     overflow: hidden;
-    z-index: 1;
-    transition: 0.3s ease;
+    transition: color 0.3s;
   }
-  
   .submit-btn .btn-bg {
-    content: "";
     position: absolute;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 100%;
-    background: #3498db;
-    z-index: -1;
-    transition: 0.3s ease;
-  }
-  
-  .submit-btn:hover .btn-bg {
     left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #1e90ff;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .submit-btn:hover {
+    color: #fff;
+  }
+  .submit-btn:hover .btn-bg {
+    transform: scaleX(1);
   }
 footer{
     width: 100%;
@@ -435,4 +427,7 @@ nav ul{
     #skills{
         height: 180vh;
     }
+    .section-title {
+        font-size: 2rem;
+      }
 }
