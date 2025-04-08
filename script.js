@@ -1,27 +1,26 @@
-let obj = { val: 0 }
 let premm = gsap.matchMedia();
 let pretl = gsap.timeline()
 premm.add("(min-width: 800px)", () => {
-    pretl.to(obj, {
-        val: 100,
-        duration: 5,
-        roundProps: "val",
-        onUpdate: () => {
-          document.getElementById("loadnumber").textContent = obj.val;
-        }
-      });
-    pretl.to("#loadnumber", { opacity: 0, duration: 1, onComplete: () => {
-      document.getElementById("loadnumber").style.display = "none";
-    }});
-    pretl.to(".bar",{
-        height: 0,
-        duration: 0.5,
-        stagger: 0.15,
-        onComplete: ()=>{
-            document.body.style.overflowY = "scroll"
-            document.querySelector(".loader").style.display = "none"
-        }
-      })
+    pretl.from(".circle", {
+      y: -500,
+      duration: 1.5,
+      ease: "bounce.out",
+    })
+    pretl.to(".circle",{
+      x: "46vw",
+      duration: 1.5,
+      rotate: 360,
+      ease: "power2.inOut"
+    })
+    pretl.to(".circle",{
+      scale: 23
+    })
+    pretl.to(".loader",{
+      opacity: 0,
+      onComplete: ()=>{
+        document.querySelector(".loader").style.display = "none"
+      }
+    })
 });
 const scroll = new FeatherScroll();
 let links = document.querySelector(".links")
