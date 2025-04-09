@@ -383,6 +383,7 @@ body{
     width: 5vw;
     border-radius: 50%;
     background-color: white;
+    display: none;
 }
 nav ul{
         display: flex;
