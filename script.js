@@ -1,6 +1,7 @@
 let premm = gsap.matchMedia();
 let pretl = gsap.timeline()
 premm.add("(min-width: 800px)", () => {
+    document.querySelector(".circle").style.display = "block"
     pretl.from(".circle", {
       y: -500,
       duration: 1.5,
